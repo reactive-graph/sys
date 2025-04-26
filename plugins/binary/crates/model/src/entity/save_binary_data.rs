@@ -3,9 +3,9 @@ use crate::BinaryDataUrl;
 use crate::NAMESPACE_BINARY;
 use reactive_graph_graph::entity_ty;
 use reactive_graph_model_base::Named;
-use reactive_graph_sys_file_model::File;
 use reactive_graph_reactive_model_api::entity_model;
 use reactive_graph_runtime_model::Action;
+use reactive_graph_sys_file_model::File;
 
 // All properties are defined in the component(s)
 

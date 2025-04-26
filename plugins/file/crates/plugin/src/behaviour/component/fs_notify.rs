@@ -7,8 +7,8 @@ use reactive_graph_reactive_model_impl::ReactiveEntity;
 use serde_json::json;
 use uuid::Uuid;
 
-use reactive_graph_sys_file_model::FileProperties::FILENAME;
 use reactive_graph_runtime_model::ActionProperties::TRIGGER;
+use reactive_graph_sys_file_model::FileProperties::FILENAME;
 
 use std::path::Path;
 use std::time::Duration;

@@ -1,9 +1,9 @@
 use crate::behaviour::component::FsNotifyFactory;
-use reactive_graph_sys_file_model::BEHAVIOUR_FS_NOTIFY;
-use reactive_graph_sys_file_model::COMPONENT_BEHAVIOUR_FS_NOTIFY;
 use reactive_graph_plugin_api::EntityComponentBehaviourRegistry;
 use reactive_graph_plugin_api::prelude::plugin::*;
 use reactive_graph_plugin_api::prelude::providers::*;
+use reactive_graph_sys_file_model::BEHAVIOUR_FS_NOTIFY;
+use reactive_graph_sys_file_model::COMPONENT_BEHAVIOUR_FS_NOTIFY;
 
 export_plugin!({
     "dependencies": [

@@ -420,7 +420,7 @@ version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fde0e0ec90c9dfb3b4b1a0891a7dcd0e2bffde2f7efed5fe7c9bb00e5bfb915e"
 dependencies = [
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -686,7 +686,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "976dd42dc7e85965fe702eb8164f21f450704bdde31faefd6471dba214cb594e"
 dependencies = [
  "libc",
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -1707,6 +1707,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "reactive-graph-model-result"
+version = "0.10.0"
+source = "git+https://github.com/reactive-graph/std.git#7a975674a650b95dcf361caa8802862fbefa35e5"
+dependencies = [
+ "reactive-graph-graph",
+ "serde",
+ "serde_json",
+ "strum_macros",
+]
+
+[[package]]
 name = "reactive-graph-model-value"
 version = "0.10.0"
 source = "git+https://github.com/reactive-graph/std.git#7a975674a650b95dcf361caa8802862fbefa35e5"
@@ -1895,6 +1906,49 @@ dependencies = [
  "serde",
  "serde_json",
  "strum_macros",
+]
+
+[[package]]
+name = "reactive-graph-sys-config"
+version = "0.10.0"
+dependencies = [
+ "async-trait",
+ "log",
+ "log4rs",
+ "reactive-graph-behaviour-model-api",
+ "reactive-graph-behaviour-model-impl",
+ "reactive-graph-graph",
+ "reactive-graph-model-result",
+ "reactive-graph-plugin-api",
+ "reactive-graph-reactive-model-api",
+ "reactive-graph-reactive-model-impl",
+ "reactive-graph-runtime-model",
+ "reactive-graph-sys-config-model",
+ "reactive-graph-sys-file-model",
+ "reactive-graph-type-system-api",
+ "rust-embed",
+ "serde",
+ "serde_json",
+ "shellexpand",
+ "springtime-di",
+ "toml",
+ "uuid",
+]
+
+[[package]]
+name = "reactive-graph-sys-config-model"
+version = "0.10.0"
+dependencies = [
+ "lazy_static",
+ "reactive-graph-behaviour-model-api",
+ "reactive-graph-graph",
+ "reactive-graph-model-result",
+ "reactive-graph-reactive-model-api",
+ "reactive-graph-reactive-model-impl",
+ "reactive-graph-runtime-model",
+ "reactive-graph-sys-file-model",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -2132,7 +2186,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -2772,7 +2826,7 @@ version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf221c93e13a30d793f7645a0e7762c55d169dbb0a49671918a2319d289b10bb"
 dependencies = [
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]

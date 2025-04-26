@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["reactive_graph_sys_binary",[["impl TypeProvider&lt;Components&gt; for <a class=\"struct\" href=\"reactive_graph_sys_binary/providers/struct.BinaryComponentsProvider.html\" title=\"struct reactive_graph_sys_binary::providers::BinaryComponentsProvider\">BinaryComponentsProvider</a>"],["impl TypeProvider&lt;EntityTypes&gt; for <a class=\"struct\" href=\"reactive_graph_sys_binary/providers/struct.BinaryEntityTypesProvider.html\" title=\"struct reactive_graph_sys_binary::providers::BinaryEntityTypesProvider\">BinaryEntityTypesProvider</a>"]]],["reactive_graph_sys_file",[["impl TypeProvider&lt;Components&gt; for <a class=\"struct\" href=\"reactive_graph_sys_file/providers/struct.ValueComponentsProvider.html\" title=\"struct reactive_graph_sys_file::providers::ValueComponentsProvider\">ValueComponentsProvider</a>"]]],["reactive_graph_sys_system_environment",[["impl TypeProvider&lt;EntityTypes&gt; for <a class=\"struct\" href=\"reactive_graph_sys_system_environment/providers/struct.SystemEnvironmentEntityTypesProvider.html\" title=\"struct reactive_graph_sys_system_environment::providers::SystemEnvironmentEntityTypesProvider\">SystemEnvironmentEntityTypesProvider</a>"]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[545,278,360]}

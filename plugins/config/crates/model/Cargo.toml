@@ -1,0 +1,27 @@
+[package]
+name = "reactive-graph-sys-config-model"
+description = "Reactive Graph - SYS- Config - Model"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "../../../../README.md"
+
+[dependencies]
+lazy_static = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+
+reactive-graph-behaviour-model-api = { workspace = true }
+reactive-graph-graph = { workspace = true }
+reactive-graph-reactive-model-api = { workspace = true }
+reactive-graph-reactive-model-impl = { workspace = true }
+reactive-graph-runtime-model = { workspace = true }
+reactive-graph-model-result = { workspace = true }
+
+reactive-graph-sys-file-model = { version = "0.10.0", path = "../../../file/crates/model" }
+
+[lib]
+crate-type = ["lib"]

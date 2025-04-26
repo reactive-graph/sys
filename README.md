@@ -7,7 +7,7 @@
 </h2>
 
 <p align="center">
-This repository contains the standard library for the <a href="https://github.com/reactive-graph/reactive-graph">Reactive Graph</a>.
+This repository contains the system library for the <a href="https://github.com/reactive-graph/reactive-graph">Reactive Graph</a>.
 </p>
 
 <p align="center">
@@ -33,13 +33,14 @@ This repository contains the standard library for the <a href="https://github.co
 
 <h2 align="center" style="text-align: center;">List of Plugins</h2>
 
-In this repository you'll find the essential plugins which are necessary or useful for all use cases.
+In this repository you'll find plugins which interacts with the system it runs on.
 
 | Name                                                         | Description                    |
 |--------------------------------------------------------------|--------------------------------|
-| [System Environment](./plugins/system-environment/README.md) | Provides environment variables |
-| [File](./plugins/file/README.md)                             | File representation            |
 | [Binary](./plugins/binary/README.md)                         | Handles binary data            |
+| [Config](./plugins/config/README.md)                         | Load configuration files       |
+| [File](./plugins/file/README.md)                             | File representation            |
+| [System Environment](./plugins/system-environment/README.md) | Provides environment variables |
 
 <h2 align="center" style="text-align: center;">Local Build + Local Deployment</h2>
 
@@ -55,7 +56,7 @@ target_dirs = [
 
 ```shell
 cargo build
-cargo post build --package=reactive-graph-plugin-date-time
+cargo post build --package=reactive-graph-sys-binary
 ```
 
 #### Install all plugins of this repository at once

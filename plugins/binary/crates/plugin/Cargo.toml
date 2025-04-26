@@ -11,7 +11,7 @@ readme = "../../../../README.md"
 
 [package.metadata.deb]
 name = "libreactive-graph-sys-binary"
-depends = "reactive-graph, libreactive-graph-plugin-base, libreactive-graph-plugin-file, libreactive-graph-plugin-trigger"
+depends = "reactive-graph, libreactive-graph-plugin-base, libreactive-graph-plugin-trigger, libreactive-graph-sys-file"
 assets = [
     ["target/release/libreactive_graph_sys_binary.so", "usr/share/reactive-graph/default/plugins/installed/libreactive_graph_sys_binary.so", "755"],
 ]

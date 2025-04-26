@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Install Plugin Binary" type="CargoCommandRunConfiguration" factoryName="Cargo Command" folderName="Install">
-    <option name="command" value="post build --package=reactive-graph-plugin-binary" />
+    <option name="command" value="post build --package=reactive-graph-sys-binary" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs>
       <env name="RUSTC_WRAPPER" value="sccache" />

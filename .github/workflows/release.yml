@@ -155,11 +155,13 @@ jobs:
         run: |
           # It's important to change into the plugin directory and building each package
           cd ../../../binary/crates/plugin
-          cargo deb -p reactive-graph-plugin-binary --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cargo deb -p reactive-graph-sys-binary --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../config/crates/plugin
+          cargo deb -p reactive-graph-sys-config --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
           cd ../../../file/crates/plugin
-          cargo deb -p reactive-graph-plugin-file --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cargo deb -p reactive-graph-sys-file --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
           cd ../../../system-environment/crates/plugin
-          cargo deb -p reactive-graph-plugin-system-environment --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cargo deb -p reactive-graph-sys-system-environment --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
         env:
           VERGEN_IDEMPOTENT: true
       - name: Upload debian package to release

@@ -1,0 +1,30 @@
+[package]
+name = "reactive-graph-sys-binary-model"
+description = "Reactive Graph - SYS - Binary - Model"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "../../../../README.md"
+
+[dependencies]
+data-url = { workspace = true }
+lazy_static = { workspace = true }
+paste = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+strum_macros = { workspace = true }
+
+reactive-graph-behaviour-model-api = { workspace = true }
+reactive-graph-graph = { workspace = true }
+reactive-graph-reactive-model-api = { workspace = true }
+reactive-graph-reactive-model-impl = { workspace = true }
+reactive-graph-runtime-model = { workspace = true }
+
+reactive-graph-model-base = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
+reactive-graph-sys-file-model = { version = "0.10.0", path = "../../../file/crates/model" }
+
+[lib]
+crate-type = ["lib"]

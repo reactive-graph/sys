@@ -1,0 +1,20 @@
+query findSystemEnvLang {
+  instances {
+    entities(label: "/io/reactive-graph/system/env/lang") {
+      id
+      label
+      type {
+        namespace
+        name
+      }
+      properties(names: [
+        "label"
+        "name"
+        "value"
+      ]) {
+        name
+        value
+      }
+    }
+  }
+}

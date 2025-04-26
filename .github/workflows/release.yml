@@ -1,0 +1,255 @@
+name: Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - v[0-9]+.*
+
+env:
+  CARGO_TERM_COLOR: always
+  WORKSPACE_ROOT_MANIFEST_DIR: "/home/runner/work/sys/sys"
+
+jobs:
+  create-release:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: VCS Checkout
+        uses: actions/checkout@v4
+      - name: Create GitHub Release
+        uses: taiki-e/create-gh-release-action@v1
+        with:
+          changelog: CHANGELOG.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+  #  upload-assets:
+  #    strategy:
+  #      matrix:
+  #        include:
+  #          # Tier 1
+  #          - target: x86_64-unknown-linux-gnu
+  #            os: ubuntu-22.04
+  #          # Tier 1
+  #          - target: aarch64-unknown-linux-gnu
+  #            os: ubuntu-22.04
+  #          # Tier 2
+  #          - target: armv7-unknown-linux-gnueabihf
+  #            os: ubuntu-22.04
+  #          # Tier 1
+  #          - target: x86_64-apple-darwin
+  #            os: macos-latest
+  #          # Tier 2
+  #          - target: aarch64-apple-darwin
+  #            os: macos-latest
+  #          # Universal macOS binary is supported as universal-apple-darwin.
+  #          - target: universal-apple-darwin
+  #            os: macos-latest
+  #          # Tier 1
+  #          - target: x86_64-pc-windows-msvc
+  #            os: windows-latest
+  #          # Tier 2
+  #          # - target: aarch64-pc-windows-msvc
+  #          #   os: windows-latest
+  #    runs-on: ${{ matrix.os }}
+  #    steps:
+  #      - name: VCS Checkout
+  #        uses: actions/checkout@v4
+  #      # Required by arm targets
+  #      - name: Install packages
+  #        uses: awalsh128/cache-apt-pkgs-action@latest
+  #        with:
+  #          packages: pkg-config openssl libssl-dev
+  #          version: 1.1
+  #        if: matrix.os == 'ubuntu-22.04'
+  #      - name: Setup Node.js 18
+  #        uses: actions/setup-node@v4
+  #        with:
+  #          node-version: 18
+  #      - name: Install Yarn
+  #        uses: borales/actions-yarn@v5
+  #        with:
+  #          cmd: --cwd plugins/graphql-client/web install
+  #      - name: Install Yarn
+  #        uses: borales/actions-yarn@v5
+  #        with:
+  #          cmd: --cwd plugins/graphql-schema-visualization/web install
+  #      - name: Upload Rust Binary
+  #        uses: taiki-e/upload-rust-binary-action@v1
+  #        with:
+  #          bin: libinexor_rgf_plugin_standalone
+  #          target: ${{ matrix.target }}
+  #          include: LICENSE.md,README.md,CHANGELOG.md,config,plugins
+  #          tar: unix
+  #          zip: windows
+  #          leading_dir: true
+  #          token: ${{ secrets.GITHUB_TOKEN }}
+  #        env:
+  #          VERGEN_IDEMPOTENT: true
+  # crates-io:
+  #   name: Publish on crates.io
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: VCS Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Install latest nightly
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         profile: minimal
+  #         toolchain: nightly
+  #         override: true
+  #     - name: Setup Node.js 18
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
+  #     - name: Install Yarn
+  #       uses: borales/actions-yarn@v5
+  #       with:
+  #         cmd: --cwd plugins/graphql-client/web install
+  #     - name: Install Yarn
+  #       uses: borales/actions-yarn@v5
+  #       with:
+  #         cmd: --cwd plugins/graphql-schema-visualization/web install
+  #     - name: Install Cargo Workspaces
+  #       uses: actions-rs/install@v0.1
+  #       with:
+  #         crate: cargo-workspaces
+  #         version: latest
+  #         use-tool-cache: true
+  #     - name: Print environment variables
+  #       run: |
+  #         echo "WORKSPACE_ROOT_MANIFEST_DIR: $WORKSPACE_ROOT_MANIFEST_DIR"
+  #     - name: Publish on crates.io
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: workspaces
+  #         args: publish --from-git --allow-dirty --no-verify
+  #       env:
+  #         CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+  #         VERGEN_IDEMPOTENT: true
+  debian-package:
+    name: Publish debian package
+    strategy:
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-20.04
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-20.04
+          - target: armv7-unknown-linux-gnueabihf
+            os: ubuntu-20.04
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: VCS Checkout
+        uses: actions/checkout@v4
+      - name: Get version number from git tag
+        id: tag
+        uses: devops-actions/action-get-tag@v1.0.3
+        with:
+          strip_v: true
+      - name: Install aarch64 packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu
+          version: 1.0
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+      - name: Install armv7 packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: binutils-arm-none-eabi gcc-arm-linux-gnueabihf
+          version: 1.0
+        if: matrix.target == 'armv7-unknown-linux-gnueabihf'
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+      - name: Install Cargo Deb
+        uses: actions-rs/install@v0.1
+        with:
+          crate: cargo-deb
+          version: latest
+          use-tool-cache: true
+      - name: Install cross-compilation tools
+        uses: taiki-e/setup-cross-toolchain-action@v1
+        with:
+          target: ${{ matrix.target }}
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Yarn
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: --cwd plugins/graphql-client/web install
+      - name: Install Yarn
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: --cwd plugins/graphql-schema-visualization/web install
+      - name: Create Debian Package
+        run: |
+          # It's important to change into the plugin directory and building each package
+          cd ./plugins/arithmetic/crates/plugin
+          cargo deb -p reactive-graph-plugin-arithmetic --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../base/crates/plugin
+          cargo deb -p reactive-graph-plugin-base --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../binary/crates/plugin
+          cargo deb -p reactive-graph-plugin-binary --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../color/crates/plugin
+          cargo deb -p reactive-graph-plugin-color --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../comparison/crates/plugin
+          cargo deb -p reactive-graph-plugin-comparison --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../config/crates/plugin
+          cargo deb -p reactive-graph-plugin-config --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../connector/crates/plugin
+          cargo deb -p reactive-graph-plugin-connector --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../date-time/crates/plugin
+          cargo deb -p reactive-graph-plugin-date-time --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../file/crates/plugin
+          cargo deb -p reactive-graph-plugin-file --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../flow/crates/plugin
+          cargo deb -p reactive-graph-plugin-flow --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../git/crates/plugin
+          cargo deb -p reactive-graph-plugin-git --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../http/crates/plugin
+          cargo deb -p reactive-graph-plugin-http --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          # cd ../../../i18n/crates/plugin
+          # cargo deb -p reactive-graph-plugin-i18n --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../json/crates/plugin
+          cargo deb -p reactive-graph-plugin-json --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../logical/crates/plugin
+          cargo deb -p reactive-graph-plugin-logical --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../metadata/crates/plugin
+          cargo deb -p reactive-graph-plugin-metadata --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../numeric/crates/plugin
+          cargo deb -p reactive-graph-plugin-numeric --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../random/crates/plugin
+          cargo deb -p reactive-graph-plugin-random --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../result/crates/plugin
+          cargo deb -p reactive-graph-plugin-result --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../state/crates/plugin
+          cargo deb -p reactive-graph-plugin-state --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../string/crates/plugin
+          cargo deb -p reactive-graph-plugin-string --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../system-environment/crates/plugin
+          cargo deb -p reactive-graph-plugin-system-environment --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../taxonomy/crates/plugin
+          cargo deb -p reactive-graph-plugin-taxonomy --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../trigger/crates/plugin
+          cargo deb -p reactive-graph-plugin-trigger --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../value/crates/plugin
+          cargo deb -p reactive-graph-plugin-value --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../graphql-client
+          cargo deb -p reactive-graph-plugin-graphql-client --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../graphql-schema-visualization
+          cargo deb -p reactive-graph-plugin-graphql-schema-visualization --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+        env:
+          VERGEN_IDEMPOTENT: true
+      - name: Upload debian package to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: target/${{ matrix.target }}/debian/libreactive-graph-plugin-*_*_*.deb
+          file_glob: true
+          tag: ${{ github.ref }}

@@ -23,3 +23,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Infrastructure
 
 - CI: Synchronize labels from config file
+- CI: Automatically merge successful dependabot PR's

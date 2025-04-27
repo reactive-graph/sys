@@ -24,7 +24,6 @@ log = { workspace = true, features = ["std", "serde"] }
 log4rs = { workspace = true, features = ["console_appender", "file_appender", "toml_format"] }
 notify = { workspace = true }
 rust-embed = { workspace = true, features = ["debug-embed", "compression"] }
-serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 shellexpand = { workspace = true }
 springtime-di = { workspace = true, default-features = false, features = ["threadsafe", "derive"] }

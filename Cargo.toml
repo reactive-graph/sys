@@ -46,7 +46,6 @@ serde_json = "1.0"
 springtime = "1.0"
 springtime-di = { version = "1.0", default-features = false, features = ["threadsafe", "derive"] }
 shellexpand = "3.0"
-strum = { version = "0.27", features = ["derive"] }
 strum_macros = "0.27"
 thiserror = "2.0"
 toml = "0.8"
@@ -56,19 +55,13 @@ uuid = { version = "1.2", features = ["serde", "v4", "v5"] }
 
 reactive-graph-behaviour-model-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-behaviour-model-impl = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
-reactive-graph-behaviour-service-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
-reactive-graph-config-model = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-graph = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-runtime-model = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-plugin-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
-reactive-graph-plugin-derive = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-reactive-model-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-reactive-model-impl = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-reactive-service-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git", features = ["derive"] }
-reactive-graph-reactive-service-impl = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-type-system-api = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git", features = ["json5", "toml"] }
-reactive-graph-lifecycle = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
-reactive-graph-test-utils = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 
 reactive-graph-std-base-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
 reactive-graph-std-result-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }

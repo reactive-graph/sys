@@ -13,7 +13,6 @@ readme = "../../../../README.md"
 data-url = { workspace = true }
 lazy_static = { workspace = true }
 paste = { workspace = true }
-serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 strum_macros = { workspace = true }
 

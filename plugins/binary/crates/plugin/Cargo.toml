@@ -26,11 +26,9 @@ log4rs = { workspace = true, features = ["console_appender", "file_appender", "t
 matchit = { workspace = true }
 mime_guess = { workspace = true }
 rust-embed = { workspace = true, features = ["debug-embed", "compression"] }
-serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 shellexpand = { workspace = true }
 springtime-di = { workspace = true, default-features = false, features = ["threadsafe", "derive"] }
-strum = { workspace = true, features = ["derive"] }
 strum_macros = { workspace = true }
 uuid = { workspace = true, features = ["serde", "v4"] }
 

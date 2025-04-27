@@ -113,7 +113,7 @@
   color: "D8A094"
 
 - name: "r:problem"
-  description: "r:problem"
+  description: "Resolution: There is a problem which has no solution yet."
   color: "D8A094"
 
 - name: "r:research"

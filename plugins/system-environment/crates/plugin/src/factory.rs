@@ -15,10 +15,10 @@ use serde_json::json;
 use thiserror::Error;
 use uuid::Uuid;
 
-use reactive_graph_model_base::COMPONENT_NAMED;
-use reactive_graph_model_base::NamedProperties::NAME;
-use reactive_graph_model_value::COMPONENT_VALUE;
-use reactive_graph_model_value::ValueProperties::VALUE;
+use reactive_graph_std_base_model::COMPONENT_NAMED;
+use reactive_graph_std_base_model::NamedProperties::NAME;
+use reactive_graph_std_value_model::COMPONENT_VALUE;
+use reactive_graph_std_value_model::ValueProperties::VALUE;
 
 use reactive_graph_sys_system_environment_model::ENTITY_TYPE_SYSTEM_ENV_VAR;
 use reactive_graph_sys_system_environment_model::NAMESPACE_SYSTEM_ENVIRONMENT_ID;

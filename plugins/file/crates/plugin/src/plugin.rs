@@ -7,8 +7,8 @@ use reactive_graph_sys_file_model::COMPONENT_BEHAVIOUR_FS_NOTIFY;
 
 export_plugin!({
     "dependencies": [
-        { "name": "reactive-graph-plugin-base", "version": ">=0.10.0, <0.11.0" }
-        { "name": "reactive-graph-plugin-trigger", "version": ">=0.10.0, <0.11.0" }
+        { "name": "reactive-graph-std-base", "version": ">=0.10.0, <0.11.0" }
+        { "name": "reactive-graph-std-trigger", "version": ">=0.10.0, <0.11.0" }
     ]
 });
 

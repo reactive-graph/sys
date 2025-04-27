@@ -7,6 +7,8 @@ members = [
     "plugins/config/crates/plugin",
     "plugins/file/crates/model",
     "plugins/file/crates/plugin",
+    "plugins/json/crates/model",
+    "plugins/json/crates/plugin",
     "plugins/system-environment/crates/model",
     "plugins/system-environment/crates/plugin",
     "deployment"
@@ -68,9 +70,9 @@ reactive-graph-type-system-api = { version = "0.10.0", git = "https://github.com
 reactive-graph-lifecycle = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 reactive-graph-test-utils = { version = "0.10.0", git = "https://github.com/reactive-graph/reactive-graph.git" }
 
-reactive-graph-model-base = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
-reactive-graph-model-result = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
-reactive-graph-model-value = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
+reactive-graph-std-base-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
+reactive-graph-std-result-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
+reactive-graph-std-value-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
 
 [profile.dev]
 opt-level = 0

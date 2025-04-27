@@ -1,6 +1,6 @@
 use crate::NAMESPACE_CONFIG;
 use reactive_graph_graph::entity_ty;
-use reactive_graph_model_result::ResultObject;
+use reactive_graph_std_result_model::ResultObject;
 use reactive_graph_reactive_model_api::entity_model;
 use reactive_graph_runtime_model::Action;
 use reactive_graph_sys_file_model::File;

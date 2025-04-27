@@ -7,9 +7,9 @@ use reactive_graph_sys_config_model::COMPONENT_BEHAVIOUR_CONFIG_FILE;
 
 export_plugin!({
     "dependencies": [
-        { "name": "reactive-graph-plugin-base", "version": ">=0.10.0, <0.11.0" },
-        { "name": "reactive-graph-plugin-trigger", "version": ">=0.10.0, <0.11.0" },
-        { "name": "reactive-graph-plugin-result", "version": ">=0.10.0, <0.11.0" },
+        { "name": "reactive-graph-std-base", "version": ">=0.10.0, <0.11.0" },
+        { "name": "reactive-graph-std-trigger", "version": ">=0.10.0, <0.11.0" },
+        { "name": "reactive-graph-std-result", "version": ">=0.10.0, <0.11.0" },
         { "name": "reactive-graph-sys-file", "version": ">=0.10.0, <0.11.0" }
     ]
 });

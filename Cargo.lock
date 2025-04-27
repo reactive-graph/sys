@@ -1880,11 +1880,9 @@ dependencies = [
  "reactive-graph-sys-file-model",
  "reactive-graph-type-system-api",
  "rust-embed",
- "serde",
  "serde_json",
  "shellexpand",
  "springtime-di",
- "strum",
  "strum_macros",
  "uuid",
 ]
@@ -1903,7 +1901,6 @@ dependencies = [
  "reactive-graph-runtime-model",
  "reactive-graph-std-base-model",
  "reactive-graph-sys-file-model",
- "serde",
  "serde_json",
  "strum_macros",
 ]
@@ -1927,7 +1924,6 @@ dependencies = [
  "reactive-graph-sys-file-model",
  "reactive-graph-type-system-api",
  "rust-embed",
- "serde",
  "serde_json",
  "shellexpand",
  "springtime-di",
@@ -1947,7 +1943,6 @@ dependencies = [
  "reactive-graph-runtime-model",
  "reactive-graph-std-result-model",
  "reactive-graph-sys-file-model",
- "serde",
  "serde_json",
 ]
 
@@ -1971,7 +1966,6 @@ dependencies = [
  "reactive-graph-sys-file-model",
  "reactive-graph-type-system-api",
  "rust-embed",
- "serde",
  "serde_json",
  "shellexpand",
  "springtime-di",
@@ -1989,7 +1983,6 @@ dependencies = [
  "reactive-graph-reactive-model-api",
  "reactive-graph-reactive-model-impl",
  "reactive-graph-runtime-model",
- "serde",
  "serde_json",
  "strum_macros",
 ]

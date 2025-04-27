@@ -160,6 +160,8 @@ jobs:
           cargo deb -p reactive-graph-sys-config --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
           cd ../../../file/crates/plugin
           cargo deb -p reactive-graph-sys-file --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
+          cd ../../../json/crates/plugin
+          cargo deb -p reactive-graph-sys-json --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
           cd ../../../system-environment/crates/plugin
           cargo deb -p reactive-graph-sys-system-environment --target=${{ matrix.target }} --deb-version ${{steps.tag.outputs.tag}}
         env:

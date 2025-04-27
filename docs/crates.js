@@ -1,2 +1,2 @@
-window.ALL_CRATES = ["deployment_all","reactive_graph_sys_binary","reactive_graph_sys_binary_model","reactive_graph_sys_config","reactive_graph_sys_config_model","reactive_graph_sys_file","reactive_graph_sys_file_model","reactive_graph_sys_system_environment","reactive_graph_sys_system_environment_model"];
-//{"start":21,"fragment_lengths":[16,28,34,28,34,26,32,40,46]}
+window.ALL_CRATES = ["deployment_all","reactive_graph_sys_binary","reactive_graph_sys_binary_model","reactive_graph_sys_config","reactive_graph_sys_config_model","reactive_graph_sys_file","reactive_graph_sys_file_model","reactive_graph_sys_json","reactive_graph_sys_json_model","reactive_graph_sys_system_environment","reactive_graph_sys_system_environment_model"];
+//{"start":21,"fragment_lengths":[16,28,34,28,34,26,32,26,32,40,46]}

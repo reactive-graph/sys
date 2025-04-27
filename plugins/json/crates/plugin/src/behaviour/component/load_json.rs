@@ -10,8 +10,8 @@ use reactive_graph_runtime_model::ActionProperties::TRIGGER;
 use serde_json::Value;
 use uuid::Uuid;
 
-use reactive_graph_sys_file_model::FileProperties::FILENAME;
 use reactive_graph_std_result_model::ResultAnyProperties::RESULT;
+use reactive_graph_sys_file_model::FileProperties::FILENAME;
 
 entity_behaviour!(LoadJson, LoadJsonFactory, LoadJsonFsm, LoadJsonBehaviourTransitions, LoadJsonValidator);
 

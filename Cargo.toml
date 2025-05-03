@@ -33,7 +33,6 @@ crossbeam = "0.8"
 data-url = "0.3"
 http = "0.2"
 infer = "0.19"
-lazy_static = "1.4"
 log = { version = "0.4", features = ["std", "serde"] }
 log4rs = { version = "1.2", features = ["console_appender", "file_appender", "toml_format"] }
 matchit = "0.8"

@@ -45,10 +45,7 @@ impl BehaviourConnect<Uuid, ReactiveEntity> for SaveBinaryDataBehaviourTransitio
                     let mut parts = data_url.splitn(2, ',');
                     let _part_data_url_prefix = parts.next();
                     let bytes = match parts.next() {
-                        Some(part_base64_encoded_data) => match STANDARD.decode(part_base64_encoded_data) {
-                            Ok(bytes) => Some(bytes),
-                            Err(_) => None,
-                        },
+                        Some(part_base64_encoded_data) => STANDARD.decode(part_base64_encoded_data).ok(),
                         None => None,
                     };
                     if bytes.is_none() {

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="theme" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -14,10 +14,6 @@
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="./src/design/public/css/open-props.min.css">
-        <link rel="stylesheet" href="./src/design/public/css/open-props-buttons.min.css">
-        <link rel="stylesheet" href="./src/design/public/css/open-props-normalize.min.css">
-        <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -28,29 +24,32 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="././book.css">
         <link rel="stylesheet" href="././mdbook-admonish.css">
         <link rel="stylesheet" href="././graphql-playground.css">
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "theme" : "theme";
-        </script>
 
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -64,24 +63,22 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('theme')
+            const html = document.documentElement;
+            html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -89,89 +86,20 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-header">
-                <h3>
-                    <img src="design/public/logo/rendered/mexican-pink/reactive-graph-200x200.png" alt="This Month in Reactive Graph!" class="sidebar-logo">
-                </h3>
-            </div>
-            <div class="sidebar-footer">
-                <div class="rg-icon-grid">
-                    <div>
-                        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0">
-                            <img src="images/creative-commons.svg" alt="Creative Commons Attribution-ShareAlike 4.0">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0">
-                            <img src="images/creative-commons-by.svg" alt="Creative Commons Attribution-ShareAlike 4.0">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0">
-                            <img src="images/creative-commons-sa.svg" alt="Creative Commons Attribution-ShareAlike 4.0">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://github.com/reactive-graph/reactive-graph" title="Git repository" aria-label="Git repository">
-                            <img src="images/brand-github.svg" alt="Git repository">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://www.youtube.com/@reactive-graph" title="YouTube" aria-label="YouTube">
-                            <img src="images/brand-youtube.svg" alt="YouTube">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://www.facebook.com/reactive.graph" title="Facebook" aria-label="Facebook">
-                            <img src="images/brand-facebook.svg" alt="Facebook">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="/rss.xml" title="RSS Feed">
-                            <img src="images/rss.svg" alt="RSS Feed">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://github.com/reactive-graph/std/edit/main/src/Introduction.md" title="Suggest an edit" aria-label="Suggest an edit">
-                            <img src="images/pencil.svg" alt="Git repository">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
@@ -180,32 +108,35 @@
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <img src="images/menu-2.svg" alt="Search" class="rg-header-icons">
+                            <i class="fa fa-bars"></i>
                         </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <img src="images/search.svg" alt="Search" class="rg-header-icons">
+                            <i class="fa fa-search"></i>
                         </button>
                     </div>
 
-                    <h1 class="menu-title">
-                        Reactive Graph - System Library
-                    </h1>
+                    <h1 class="menu-title">Reactive Graph - System Library</h1>
 
                     <div class="right-buttons">
-                        <a href="https://www.reactive-graph.io/" title="www.reactive-graph.io" aria-label="www.reactive-graph.io">
-                            <img src="design/public/logo/mono/reactive-graph-black.svg" alt="www.reactive-graph.io" class="rg-header-icons right-buttons-logo">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/reactive-graph/reactive-graph" title="Git repository" aria-label="Git repository">
-                            <img src="images/brand-github.svg" alt="Git repository" class="rg-header-icons">
-                        </a>
-                        <a href="https://www.youtube.com/@reactive-graph" title="YouTube" aria-label="YouTube">
-                            <img src="images/brand-youtube.svg" alt="YouTube" class="rg-header-icons">
-                        </a>
-                        <a href="https://www.facebook.com/reactive.graph" title="Facebook" aria-label="Facebook">
-                            <img src="images/brand-facebook.svg" alt="Facebook" class="rg-header-icons">
+                        <a href="https://github.com/reactive-graph/std" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
                         <a href="https://github.com/reactive-graph/std/edit/main/src/Introduction.md" title="Suggest an edit" aria-label="Suggest an edit">
-                            <img src="images/pencil.svg" alt="Search" class="rg-header-icons">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
                     </div>
@@ -242,6 +173,9 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                            <a rel="next prefetch" href="binary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -250,6 +184,9 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                    <a rel="next prefetch" href="binary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

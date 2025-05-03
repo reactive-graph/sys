@@ -30,6 +30,7 @@ This repository contains the system library for the <a href="https://github.com/
 
 </div>
 
+<hr>
 
 <h2 align="center" style="text-align: center;">List of Plugins</h2>
 

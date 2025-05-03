@@ -23,3 +23,6 @@ reactive-graph-runtime-model = { workspace = true }
 
 [lib]
 crate-type = ["lib"]
+
+[lints]
+workspace = true

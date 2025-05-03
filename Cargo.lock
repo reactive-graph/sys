@@ -143,14 +143,15 @@ dependencies = [
 
 [[package]]
 name = "async-executor"
-version = "1.13.1"
+version = "1.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30ca9a001c1e8ba5149f91a74362376cc6bc5b919d92d988668657bd570bdcec"
+checksum = "bb812ffb58524bdd10860d7d974e2f01cc0950c2438a74ee5ec2e2280c6c4ffa"
 dependencies = [
  "async-task",
  "concurrent-queue",
  "fastrand 2.3.0",
  "futures-lite",
+ "pin-project-lite",
  "slab",
 ]
 
@@ -329,9 +330,9 @@ checksum = "d71b6127be86fdcfddb610f7182ac57211d4b18a3e9c82eb2d17662f2227ad6a"
 
 [[package]]
 name = "cc"
-version = "1.2.20"
+version = "1.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04da6a0d40b948dfc4fa8f5bbf402b0fc1a64a28dbf7d12ffd683550f2c1b63a"
+checksum = "8691782945451c1c383942c4874dbe63814f61cb57ef773cda2972682b7bb3c0"
 dependencies = [
  "shlex",
 ]
@@ -355,9 +356,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chrono"
-version = "0.4.40"
+version = "0.4.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a7964611d71df112cb1730f2ee67324fcf4d0fc6606acbbe9bfe06df124637c"
+checksum = "c469d952047f47f91b68d1cba3f10d63c11d73e4636f24f08daf0278abf01c4d"
 dependencies = [
  "android-tzdata",
  "iana-time-zone",
@@ -420,7 +421,7 @@ version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fde0e0ec90c9dfb3b4b1a0891a7dcd0e2bffde2f7efed5fe7c9bb00e5bfb915e"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -686,7 +687,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "976dd42dc7e85965fe702eb8164f21f450704bdde31faefd6471dba214cb594e"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -864,9 +865,9 @@ dependencies = [
 
 [[package]]
 name = "hashbrown"
-version = "0.15.2"
+version = "0.15.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf151400ff0baff5465007dd2f3e717f3fe502074ca563069ce3a6629d07b289"
+checksum = "84b26c544d002229e640969970a2e74021aadf6e2f96372b9c58eff97de08eb3"
 
 [[package]]
 name = "heck"
@@ -963,7 +964,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cea70ddb795996207ad57735b50c5982d8844f38ba9ee5f1aedcfb708a2aa11e"
 dependencies = [
  "equivalent",
- "hashbrown 0.15.2",
+ "hashbrown 0.15.3",
 ]
 
 [[package]]
@@ -1593,7 +1594,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-behaviour-model-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "dashmap",
  "reactive-graph-graph",
@@ -1608,7 +1609,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-behaviour-model-impl"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "dashmap",
  "log",
@@ -1625,7 +1626,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-behaviour-service-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "async-trait",
  "reactive-graph-behaviour-model-api",
@@ -1640,10 +1641,9 @@ dependencies = [
 [[package]]
 name = "reactive-graph-command-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "clap",
- "lazy_static",
  "reactive-graph-graph",
  "reactive-graph-reactive-model-api",
  "reactive-graph-reactive-model-impl",
@@ -1658,7 +1658,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-config-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "num_cpus",
  "reactive-graph-remotes-model",
@@ -1668,13 +1668,13 @@ dependencies = [
 [[package]]
 name = "reactive-graph-graph"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "dashmap",
  "default-test",
  "rand 0.9.1",
  "rand_derive3",
- "reactive-graph-test-utils",
+ "reactive-graph-utils-test",
  "schemars",
  "serde",
  "serde_json",
@@ -1687,7 +1687,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-lifecycle"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "async-trait",
 ]
@@ -1695,7 +1695,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-plugin-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "async-trait",
  "http",
@@ -1720,12 +1720,12 @@ dependencies = [
 [[package]]
 name = "reactive-graph-plugin-derive"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 
 [[package]]
 name = "reactive-graph-reactive-derive"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -1736,7 +1736,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-model-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "reactive-graph-graph",
  "serde_json",
@@ -1747,7 +1747,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-model-impl"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "dashmap",
  "reactive-graph-behaviour-model-api",
@@ -1762,7 +1762,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-service-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1786,7 +1786,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-remotes-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "chrono",
  "serde",
@@ -1796,7 +1796,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-runtime-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "reactive-graph-graph",
  "serde",
@@ -1807,7 +1807,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-serde"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "json5",
  "serde_json",
@@ -1818,7 +1818,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-base-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#8d79aac74be180265da4e3adf6bb47e803cafd33"
+source = "git+https://github.com/reactive-graph/std.git#a9934a992e9a5bc931de708a813c9a4e71e98990"
 dependencies = [
  "license",
  "paste",
@@ -1832,7 +1832,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-result-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#8d79aac74be180265da4e3adf6bb47e803cafd33"
+source = "git+https://github.com/reactive-graph/std.git#a9934a992e9a5bc931de708a813c9a4e71e98990"
 dependencies = [
  "reactive-graph-graph",
  "serde",
@@ -1843,7 +1843,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-value-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#8d79aac74be180265da4e3adf6bb47e803cafd33"
+source = "git+https://github.com/reactive-graph/std.git#a9934a992e9a5bc931de708a813c9a4e71e98990"
 dependencies = [
  "dashmap",
  "paste",
@@ -2064,21 +2064,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "reactive-graph-test-utils"
-version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
-dependencies = [
- "colored",
- "log",
- "log4rs",
- "random-string",
- "serde_json",
-]
-
-[[package]]
 name = "reactive-graph-type-system-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "async-trait",
  "json5",
@@ -2098,12 +2086,24 @@ dependencies = [
 [[package]]
 name = "reactive-graph-type-system-derive"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#d3d99a3afede51daa07195d99c0a979e73ffdba8"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
 dependencies = [
  "darling",
  "proc-macro2",
  "quote",
  "syn 2.0.101",
+]
+
+[[package]]
+name = "reactive-graph-utils-test"
+version = "0.10.0"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#ef5b82dd9ca1a538aac384d82451e80d9f5593ab"
+dependencies = [
+ "colored",
+ "log",
+ "log4rs",
+ "random-string",
+ "serde_json",
 ]
 
 [[package]]
@@ -2221,7 +2221,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -2364,9 +2364,9 @@ checksum = "bbfa15b3dddfee50a0fff136974b3e1bde555604ba463834a7eb7deb6417705d"
 
 [[package]]
 name = "sha2"
-version = "0.10.8"
+version = "0.10.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "793db75ad2bcafc3ffa7c68b215fee268f537982cd901d132f89c6343f3a3dc8"
+checksum = "a7507d819769d01a365ab707794a4084392c824f54a7a6a7862f8c3d0892b283"
 dependencies = [
  "cfg-if",
  "cpufeatures",
@@ -2861,7 +2861,7 @@ version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf221c93e13a30d793f7645a0e7762c55d169dbb0a49671918a2319d289b10bb"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -3013,9 +3013,9 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 
 [[package]]
 name = "winnow"
-version = "0.7.7"
+version = "0.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6cb8234a863ea0e8cd7284fcdd4f145233eb00fee02bbdd9861aec44e6477bc5"
+checksum = "d9fb597c990f03753e08d3c29efbfcf2019a003b4bf4ba19225c158e1549f0f3"
 dependencies = [
  "memchr",
 ]

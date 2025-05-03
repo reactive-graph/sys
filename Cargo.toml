@@ -67,6 +67,12 @@ reactive-graph-std-base-model = { version = "0.10.0", git = "https://github.com/
 reactive-graph-std-result-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
 reactive-graph-std-value-model = { version = "0.10.0", git = "https://github.com/reactive-graph/std.git" }
 
+[workspace.lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tarpaulin_include)', 'cfg(fn_traits)', 'cfg(unboxed_closures)'] }
+
+[workspace.lints.clippy]
+non_std_lazy_statics = "warn"
+
 [profile.dev]
 opt-level = 0
 

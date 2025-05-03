@@ -1892,7 +1892,6 @@ name = "reactive-graph-sys-binary-model"
 version = "0.10.0"
 dependencies = [
  "data-url",
- "lazy_static",
  "paste",
  "reactive-graph-behaviour-model-api",
  "reactive-graph-graph",
@@ -1935,7 +1934,6 @@ dependencies = [
 name = "reactive-graph-sys-config-model"
 version = "0.10.0"
 dependencies = [
- "lazy_static",
  "reactive-graph-behaviour-model-api",
  "reactive-graph-graph",
  "reactive-graph-reactive-model-api",
@@ -1976,7 +1974,6 @@ dependencies = [
 name = "reactive-graph-sys-file-model"
 version = "0.10.0"
 dependencies = [
- "lazy_static",
  "paste",
  "reactive-graph-behaviour-model-api",
  "reactive-graph-graph",
@@ -2016,7 +2013,6 @@ dependencies = [
 name = "reactive-graph-sys-json-model"
 version = "0.10.0"
 dependencies = [
- "lazy_static",
  "reactive-graph-behaviour-model-api",
  "reactive-graph-graph",
  "reactive-graph-reactive-model-api",

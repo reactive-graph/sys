@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prefix plugins with `sys` (e.g. `libreactive_graph_sys_binary`)
 - Refactored usages of `std` to its new namespace
 - Configure lints on workspace level
+- Replaced lazy_static with LazyLock
 
 ### Fixed
 

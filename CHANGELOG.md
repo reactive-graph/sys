@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved plugins binary, config, file and system-environment from `reactive-graph/std` -> `reactive-graph/sys`
 - Prefix plugins with `sys` (e.g. `libreactive_graph_sys_binary`)
 - Refactored usages of `std` to its new namespace
+- Configure lints on workspace level
 
 ### Fixed
 

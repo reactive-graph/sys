@@ -54,13 +54,13 @@ fn read_toml(filename: String) -> Option<Value> {
             match data {
                 Ok(data) => Some(data),
                 Err(e) => {
-                    error!("Failed to parse config file {}: {}", filename, e.to_string());
+                    error!("Failed to parse config file {}: {}", filename, e);
                     None
                 }
             }
         }
         Err(e) => {
-            error!("config file {} does not exist: {}", filename, e.to_string());
+            error!("config file {} does not exist: {}", filename, e);
             None
         }
     }

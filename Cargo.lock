@@ -1818,7 +1818,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-base-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#98536564b4432d5c8026a82dd5cbdc87437c64de"
+source = "git+https://github.com/reactive-graph/std.git#45a3b22f4a9b72d0f4d5654f9d1677df4dffcdb8"
 dependencies = [
  "license",
  "paste",
@@ -1832,7 +1832,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-result-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#98536564b4432d5c8026a82dd5cbdc87437c64de"
+source = "git+https://github.com/reactive-graph/std.git#45a3b22f4a9b72d0f4d5654f9d1677df4dffcdb8"
 dependencies = [
  "reactive-graph-graph",
  "serde",
@@ -1843,7 +1843,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-value-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#98536564b4432d5c8026a82dd5cbdc87437c64de"
+source = "git+https://github.com/reactive-graph/std.git#45a3b22f4a9b72d0f4d5654f9d1677df4dffcdb8"
 dependencies = [
  "dashmap",
  "paste",

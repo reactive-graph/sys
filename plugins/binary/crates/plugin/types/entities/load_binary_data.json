@@ -1,4 +1,5 @@
 {
+  "$id": "https://schema.reactive-graph.io/schema/json/entity-tyoe.schema.json",
   "namespace": "binary",
   "type_name": "load_binary_data",
   "description": "Loads binary data",

@@ -1,4 +1,5 @@
 {
+  "$id": "https://schema.reactive-graph.io/schema/json/entity-tyoe.schema.json",
   "namespace": "config",
   "type_name": "config_file",
   "description": "Loads a configuration file",

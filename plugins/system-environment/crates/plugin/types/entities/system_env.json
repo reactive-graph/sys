@@ -1,4 +1,5 @@
 {
+  "$id": "https://schema.reactive-graph.io/schema/json/entity-tyoe.schema.json",
   "namespace": "system_environment",
   "type_name": "env_var",
   "description": "System Environment Variable",

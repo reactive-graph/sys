@@ -47,7 +47,7 @@ springtime-di = { version = "1.0", default-features = false, features = ["thread
 shellexpand = "3.0"
 strum_macros = "0.27"
 thiserror = "2.0"
-toml = "0.8"
+toml = "0.9"
 uuid = { version = "1.17", features = ["serde", "v4", "v5"] }
 
 ### Prefer git to crates.io for development

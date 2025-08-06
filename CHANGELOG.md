@@ -20,10 +20,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored usages of `std` to its new namespace
 - Configure lints on workspace level
 - Replaced lazy_static with LazyLock
+- Build: Bump MSRV 1.85 -> 1.87
 
 ### Fixed
 
 ### Distribution
+
+- CI: Use ubuntu-22.04 instead of ubuntu-20.04 for building debian packages
+- CI: Publish dynamic link libraries as compressed archive
+- CI: Publish debian packages
 
 ### Infrastructure
 

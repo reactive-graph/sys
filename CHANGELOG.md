@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Fixed
+
+### Distribution
+
+### Infrastructure
+
+## [0.10.0-alpha-1] - 2025-08-07
+
+### Added
+
 - Documentation: Added Book
 - Type System: Added JSON schema identifier to all types
 
@@ -21,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configure lints on workspace level
 - Replaced lazy_static with LazyLock
 - Build: Bump MSRV 1.85 -> 1.87
+- Upgrade log4rs to 1.4.0
 
 ### Fixed
 

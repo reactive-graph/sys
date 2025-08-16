@@ -26,7 +26,7 @@ keywords = ["graph", "reactive", "control-flow", "inexor"]
 rust-version = "1.87.0"
 
 [workspace.dependencies]
-async-std = "1.12"
+async-std = "1.13"
 async-trait = "0.1"
 base64 = "0.22"
 crossbeam = "0.8"
@@ -48,7 +48,7 @@ shellexpand = "3.0"
 strum_macros = "0.27"
 thiserror = "2.0"
 toml = "0.9"
-uuid = { version = "1.17", features = ["serde", "v4", "v5"] }
+uuid = { version = "1.18", features = ["serde", "v4", "v5"] }
 
 ### Prefer git to crates.io for development
 

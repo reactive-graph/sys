@@ -463,6 +463,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "convert_case"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "baaaa0ecca5b51987b9423ccdc971514dd8b0bb7b4060b983d3664dad3f1f89f"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
 name = "core-foundation-sys"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1223,9 +1232,9 @@ checksum = "a94d21414c1f4a51209ad204c1776a3d0765002c76c6abcb602a6f09f1e881c7"
 
 [[package]]
 name = "log4rs"
-version = "1.4.0-rc2"
+version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f3b886e5f9cc009cfe1bb242b7bc5b29e98d0753d55a928eac2cec44365476e"
+checksum = "3e947bb896e702c711fccc2bf02ab2abb6072910693818d1d6b07ee2b9dfd86c"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -1620,7 +1629,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-behaviour-model-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "dashmap",
  "reactive-graph-graph",
@@ -1652,7 +1661,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-behaviour-service-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "async-trait",
  "reactive-graph-behaviour-model-api",
@@ -1660,7 +1669,7 @@ dependencies = [
  "reactive-graph-lifecycle",
  "reactive-graph-reactive-model-impl",
  "reactive-graph-type-system-api",
- "springtime-di",
+ "springtime-di 1.0.3 (git+https://github.com/reactive-graph/springtime.git)",
  "uuid",
 ]
 
@@ -1694,7 +1703,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-graph"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "const_format",
  "dashmap",
@@ -1714,7 +1723,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-lifecycle"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "async-trait",
 ]
@@ -1738,7 +1747,7 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_json",
- "springtime-di",
+ "springtime-di 1.0.3 (git+https://github.com/reactive-graph/springtime.git)",
  "thiserror",
  "tokio-stream",
  "uuid",
@@ -1752,7 +1761,7 @@ source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54d
 [[package]]
 name = "reactive-graph-reactive-derive"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -1763,7 +1772,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-model-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "reactive-graph-graph",
  "serde_json",
@@ -1774,7 +1783,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-model-impl"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "dashmap",
  "reactive-graph-behaviour-model-api",
@@ -1789,7 +1798,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-reactive-service-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1805,7 +1814,7 @@ dependencies = [
  "rustversion",
  "serde",
  "serde_json",
- "springtime-di",
+ "springtime-di 1.0.3 (git+https://github.com/reactive-graph/springtime.git)",
  "thiserror",
  "uuid",
 ]
@@ -1834,7 +1843,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-serde"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "json5",
  "serde_json",
@@ -1845,7 +1854,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-base-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#0ec80a782b51d4169e0704952c45be1f69d41a27"
+source = "git+https://github.com/reactive-graph/std.git#fa286f548cb933768276a9ddd428d563214e3b88"
 dependencies = [
  "license",
  "paste",
@@ -1859,7 +1868,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-result-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#0ec80a782b51d4169e0704952c45be1f69d41a27"
+source = "git+https://github.com/reactive-graph/std.git#fa286f548cb933768276a9ddd428d563214e3b88"
 dependencies = [
  "reactive-graph-graph",
  "serde",
@@ -1870,7 +1879,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-std-value-model"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/std.git#0ec80a782b51d4169e0704952c45be1f69d41a27"
+source = "git+https://github.com/reactive-graph/std.git#fa286f548cb933768276a9ddd428d563214e3b88"
 dependencies = [
  "dashmap",
  "paste",
@@ -1909,7 +1918,7 @@ dependencies = [
  "rust-embed",
  "serde_json",
  "shellexpand",
- "springtime-di",
+ "springtime-di 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "strum_macros",
  "uuid",
 ]
@@ -1952,7 +1961,7 @@ dependencies = [
  "rust-embed",
  "serde_json",
  "shellexpand",
- "springtime-di",
+ "springtime-di 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "toml 0.9.5",
  "uuid",
 ]
@@ -1993,7 +2002,7 @@ dependencies = [
  "rust-embed",
  "serde_json",
  "shellexpand",
- "springtime-di",
+ "springtime-di 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "uuid",
 ]
 
@@ -2032,7 +2041,7 @@ dependencies = [
  "rust-embed",
  "serde_json",
  "shellexpand",
- "springtime-di",
+ "springtime-di 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "uuid",
 ]
 
@@ -2070,7 +2079,7 @@ dependencies = [
  "reactive-graph-type-system-api",
  "rust-embed",
  "serde_json",
- "springtime-di",
+ "springtime-di 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
  "uuid",
 ]
@@ -2089,7 +2098,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-type-system-api"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "async-trait",
  "json5",
@@ -2100,7 +2109,7 @@ dependencies = [
  "reactive-graph-type-system-derive",
  "rust-embed",
  "serde_json",
- "springtime-di",
+ "springtime-di 1.0.3 (git+https://github.com/reactive-graph/springtime.git)",
  "thiserror",
  "toml 0.9.5",
  "uuid",
@@ -2109,7 +2118,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-type-system-derive"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -2120,7 +2129,7 @@ dependencies = [
 [[package]]
 name = "reactive-graph-utils-test"
 version = "0.10.0"
-source = "git+https://github.com/reactive-graph/reactive-graph.git#61f9f9769f54df4b027e3ca670f1b7a68b655a24"
+source = "git+https://github.com/reactive-graph/reactive-graph.git#3597ac92a058ab7bbc3c27a301275f935e788abf"
 dependencies = [
  "colored",
  "log",
@@ -2226,6 +2235,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56f7d92ca342cea22a06f2121d944b4fd82af56988c270852495420f961d4ace"
 
 [[package]]
+name = "rustc-hash"
+version = "2.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "357703d41365b4b27c590e3ed91eabb1b663f07c4c084095e60cbed4362dff0d"
+
+[[package]]
 name = "rustc_version"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2271,7 +2286,7 @@ dependencies = [
 [[package]]
 name = "schemars"
 version = "1.0.4"
-source = "git+https://github.com/GREsau/schemars.git#92cfcf62693c205f38cdf77a431a1ab532e5ab0d"
+source = "git+https://github.com/GREsau/schemars.git#76d4bc370b5c27ba98bfecc130406025b3570274"
 dependencies = [
  "dyn-clone",
  "ref-cast",
@@ -2284,7 +2299,7 @@ dependencies = [
 [[package]]
 name = "schemars_derive"
 version = "1.0.4"
-source = "git+https://github.com/GREsau/schemars.git#92cfcf62693c205f38cdf77a431a1ab532e5ab0d"
+source = "git+https://github.com/GREsau/schemars.git#76d4bc370b5c27ba98bfecc130406025b3570274"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2442,7 +2457,21 @@ dependencies = [
  "fxhash",
  "inventory",
  "itertools 0.14.0",
- "springtime-di-derive",
+ "springtime-di-derive 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+ "tracing",
+]
+
+[[package]]
+name = "springtime-di"
+version = "1.0.3"
+source = "git+https://github.com/reactive-graph/springtime.git#f2b081258cd0cedb7eb217909233c7e528ae1a48"
+dependencies = [
+ "derive_more",
+ "inventory",
+ "itertools 0.14.0",
+ "rustc-hash",
+ "springtime-di-derive 0.3.1 (git+https://github.com/reactive-graph/springtime.git)",
  "thiserror",
  "tracing",
 ]
@@ -2453,8 +2482,20 @@ version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c5f462fdabd80f39cf710a3db1f2c66417fb78d30bebb78fd3b32111e495be82"
 dependencies = [
- "convert_case",
+ "convert_case 0.6.0",
  "itertools 0.12.1",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "springtime-di-derive"
+version = "0.3.1"
+source = "git+https://github.com/reactive-graph/springtime.git#f2b081258cd0cedb7eb217909233c7e528ae1a48"
+dependencies = [
+ "convert_case 0.8.0",
+ "itertools 0.14.0",
  "proc-macro2",
  "quote",
  "syn",
